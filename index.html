@@ -148,14 +148,14 @@ Devengo: detección de fraude en pagos
 </div></li>
 
 <li><div lang="en">
-Compas: a CRM that turns inbound email into leads
+<a href="https://schedulo.es">Compas: a CRM that turns inbound email into leads</a> <span class="site">(schedulo.es)</span>
 <p>Sales teams miss buying signals buried in their inbox. Compas reads the Gmail inbox, spots the emails that show buying interest and turns them into leads to follow up. In daily use at Bartolomé Consultores.</p>
-<details><summary class="sub">2026 | built solo | python, fastapi, supabase, react, docker | private<span class="opt"> | <span class="more">how it works</span></span></summary>
+<details><summary class="sub">2026 | built solo | python, fastapi, supabase, react, docker<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">Gmail is connected with OAuth and synced incrementally by a background worker, fetching only new messages. An LLM reads each one, decides whether it shows buying interest and creates the lead with its contact. Google Calendar stays in sync, and several companies share one deployment with their data kept apart.</p></details>
 </div><div lang="es">
-Compas: un CRM que convierte el correo entrante en oportunidades
+<a href="https://schedulo.es">Compas: un CRM que convierte el correo entrante en oportunidades</a> <span class="site">(schedulo.es)</span>
 <p>Los equipos comerciales pierden señales de compra enterradas en la bandeja de entrada. Compas lee el correo de Gmail, detecta los mensajes con interés de compra y los convierte en oportunidades para hacer seguimiento. Se usa a diario en Bartolomé Consultores.</p>
-<details><summary class="sub">2026 | en solitario | python, fastapi, supabase, react, docker | privado<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<details><summary class="sub">2026 | en solitario | python, fastapi, supabase, react, docker<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Gmail se conecta con OAuth y un proceso en segundo plano lo sincroniza de forma incremental, trayendo solo los mensajes nuevos. Un LLM lee cada uno, decide si muestra interés de compra y crea la oportunidad con su contacto. Google Calendar se mantiene sincronizado, y varias empresas comparten un mismo despliegue con sus datos separados.</p></details>
 </div></li>
 
@@ -172,12 +172,12 @@ Bartolomé Consultores: sistemas de punto de venta
 <li><div lang="en">
 Cyberbootcamp Málaga: cybersecurity instructor
 <p>One of the UMA students chosen as instructors for a Google.org-funded program. Students wanted more practice, so we set up a CTF in under 24 hours. I built its main challenge: weak cipher → PyYAML RCE → SUID root.</p>
-<details><summary class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">challenge code</a><span class="opt"> | <span class="more">how it works</span></span></summary>
+<details><summary class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">code</a><span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">A weak cipher hides the vulnerable endpoint. Behind it, the app loads YAML with an unsafe loader, which gives remote code execution. A misconfigured SUID binary then turns that shell into root. It all runs with Docker Compose, and the repo includes the full write-up.</p></details>
 </div><div lang="es">
 Cyberbootcamp Málaga: instructor de ciberseguridad
 <p>Uno de los estudiantes de la UMA elegidos como instructores para un programa financiado por Google.org. Los alumnos querían más práctica, así que montamos un CTF en menos de 24 horas. Hice su reto principal: cifrado débil → RCE con PyYAML → root por SUID.</p>
-<details><summary class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">código del reto</a><span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<details><summary class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">código</a><span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Un cifrado débil esconde el endpoint vulnerable. Detrás, la app carga YAML con un cargador inseguro, lo que da ejecución remota de código. Un binario SUID mal configurado convierte esa shell en root. Todo corre con Docker Compose y el repositorio incluye la solución completa.</p></details>
 </div></li>
 </ol>
