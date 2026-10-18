@@ -40,6 +40,12 @@ li::before{content:counter(n) ".";color:var(--muted);text-align:right;padding-ri
 li p{font-size:9pt;line-height:1.5;margin:2px 0 1px;max-width:700px}
 .sub{font-size:8pt;color:var(--muted)}
 .sub a{text-decoration:underline}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+.more{text-decoration:underline;white-space:nowrap}
+.more::before{content:"+ "}
+details[open] .more::before{content:"\2212  "}
+.how{font-size:9pt;line-height:1.5;margin:6px 0 4px;padding-left:10px;max-width:690px;border-left:2px solid color-mix(in srgb,var(--muted) 40%,transparent)}
 #about{margin:4px 12px 0 34px;padding:12px 0 14px;max-width:700px;border-top:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
 #about h2{font-size:1em;font-weight:normal;margin:0 0 6px}
 #about table{border-collapse:collapse;font-size:9pt;line-height:1.5}
@@ -57,6 +63,19 @@ footer .sub a{text-decoration:none}
   #about td{display:block}#about td:first-child{padding-top:6px}
   li{grid-template-columns:28px 1fr}
 }
+.print-only{display:none}
+@media print{
+  @page{margin:10mm 13mm}
+  :root{--page:#fff;--bg:#fff;--fg:#000;--muted:#555}
+  body{width:auto;max-width:none;margin:0;font-size:9pt}
+  li p,.how,#about table{font-size:8.5pt}.sub{font-size:7.5pt}
+  header{background:none;color:#000;padding:0;border-bottom:1.5pt solid #000}
+  header .logo,header nav,.opt,footer{display:none}
+  header b{font-size:14pt}
+  .print-only{display:block;margin:4px 0 0;font-size:8.5pt;color:#555}
+  .intro,#about{padding-left:0;margin-left:0}
+  li{grid-template-columns:22px 1fr;break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -71,6 +90,7 @@ footer .sub a{text-decoration:none}
 <span lang="en"><a href="?lang=es" hreflang="es">español</a></span><span lang="es"><a href="?lang=en" hreflang="en">english</a></span>
 </nav>
 </header>
+<p class="print-only">albertobartolomeiruela@gmail.com · github.com/Alman368 · linkedin.com/in/albertobartolomeiruela · alman368.github.io</p>
 
 <div class="intro">
 <p lang="en">Final-year Cybersecurity &amp; AI student at the University of Málaga. I build software that businesses run on, and I research how machine learning models leak private data and how to stop it.</p>
@@ -80,32 +100,38 @@ footer .sub a{text-decoration:none}
 <ol>
 <li><div lang="en">
 How tabular foundation models leak private data, and a defense
-<p>Models like TabPFN answer using private records placed in their context, and an attacker can tell which records were there. I showed that the published defense barely helps: an attacker who knows it still tells them apart almost perfectly. My defense, SAG&#8209;Tab, cuts the leak by 10–38% depending on the model, with less leakage in all 144 comparisons and at most 3.8 points of accuracy lost.</p>
-<span class="sub">2026, ongoing | bachelor's thesis, supervised by Leonardo Franco | python, pytorch | paper in preparation</span>
+<p>Models like TabPFN answer using private records placed in their context, and an attacker can tell which records were there. I showed that the published defense barely helps: an attacker who knows it still tells them apart almost perfectly. My defense, SAG&#8209;Tab, cuts the leak by 10–38% depending on the model, losing at most 3.8 points of accuracy.</p>
+<details><summary class="sub">2026, ongoing | bachelor's thesis, supervised by Leonardo Franco | python, pytorch | paper in preparation<span class="opt"> | <span class="more">how it works</span></span></summary>
+<p class="how">The attacker reads the model's attention from each question to the private records, plus its predicted probabilities, and learns what "this record was in the context" looks like on a separate copy it controls. SAG&#8209;Tab groups records of the same class and makes them share one averaged attention key, so no single record stands out. Fixed protocol: four model configurations, two datasets, twenty shared data splits, every result traceable to hashed evidence.</p></details>
 </div><div lang="es">
 Cómo los modelos fundacionales tabulares filtran datos privados, y una defensa
-<p>Modelos como TabPFN responden usando registros privados que reciben en su contexto, y un atacante puede saber cuáles estaban ahí. Demostré que la defensa publicada apenas ayuda: un atacante que la conoce sigue distinguiéndolos casi a la perfección. Mi defensa, SAG&#8209;Tab, reduce la fuga entre un 10 % y un 38 % según el modelo, con mejora en las 144 comparaciones y un coste máximo de 3,8 puntos de precisión.</p>
-<span class="sub">2026, en curso | TFG, tutor: Leonardo Franco | python, pytorch | artículo en preparación</span>
+<p>Modelos como TabPFN responden usando registros privados que reciben en su contexto, y un atacante puede saber cuáles estaban ahí. Demostré que la defensa publicada apenas ayuda: un atacante que la conoce sigue distinguiéndolos casi a la perfección. Mi defensa, SAG&#8209;Tab, reduce la fuga entre un 10 % y un 38 % según el modelo, perdiendo como mucho 3,8 puntos de precisión.</p>
+<details><summary class="sub">2026, en curso | TFG, tutor: Leonardo Franco | python, pytorch | artículo en preparación<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<p class="how">El atacante lee la atención del modelo desde cada consulta hacia los registros privados, junto con sus probabilidades, y aprende qué aspecto tiene "este registro estaba en el contexto" sobre una copia aparte que controla él. SAG&#8209;Tab agrupa registros de la misma clase y les hace compartir una clave de atención promediada, para que ninguno destaque. Protocolo fijo: cuatro configuraciones de modelo, dos datasets, veinte particiones de datos compartidas y cada resultado trazable a evidencia con hash.</p></details>
 </div></li>
 
 <li><div lang="en">
 <a href="https://fluwy.es">Fluwy: production planning for food manufacturers</a> <span class="site">(fluwy.es)</span>
 <p>Small food factories plan production on spreadsheets. Fluwy turns orders, recipes, staff and machine capacity into schedules and material requirements, and planners adjust the plan by talking to LLM agents. Two manufacturers use it in production.</p>
-<span class="sub">2026 | co-founder, product and sales | python, fastapi, or-tools, postgresql, react</span>
+<details><summary class="sub">2026 | co-founder, product and sales | python, fastapi, or-tools, postgresql, react<span class="opt"> | <span class="more">how it works</span></span></summary>
+<p class="how">An OR-Tools solver builds the schedule from orders, recipes, staff and machine capacity. LLM agents change the underlying data (orders, recipes, capacities) in a sandbox, so the planner asks in plain words and the solver re-plans. Multi-tenant FastAPI and PostgreSQL, with subscription billing.</p></details>
 </div><div lang="es">
 <a href="https://fluwy.es">Fluwy: planificación de producción para fábricas de alimentación</a> <span class="site">(fluwy.es)</span>
 <p>Las pequeñas fábricas de alimentación planifican en hojas de cálculo. Fluwy convierte pedidos, recetas, personal y capacidad de máquinas en planes de producción y necesidades de material, y el plan se ajusta hablando con agentes de IA. Dos fábricas lo usan en producción.</p>
-<span class="sub">2026 | cofundador, producto y ventas | python, fastapi, or-tools, postgresql, react</span>
+<details><summary class="sub">2026 | cofundador, producto y ventas | python, fastapi, or-tools, postgresql, react<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<p class="how">Un solver de OR-Tools construye el plan a partir de pedidos, recetas, personal y capacidad de máquinas. Agentes de IA modifican los datos (pedidos, recetas, capacidades) en un entorno aislado, así que el planificador lo pide con palabras y el solver vuelve a planificar. FastAPI y PostgreSQL multiempresa, con facturación por suscripción.</p></details>
 </div></li>
 
 <li><div lang="en">
 Devengo: fraud detection on payments
 <p>I started the AI work at this payments fintech. First project: a fraud detector that flags outgoing payments that don't match a customer's own history, tested on later payments than it learned from, with thresholds tuned so a person reviews only the suspicious ones.</p>
-<span class="sub">2026 | ai r&amp;d | python, random cut forest, aws sagemaker | private</span>
+<details><summary class="sub">2026 | ai r&amp;d | python, random cut forest, aws sagemaker | private<span class="opt"> | <span class="more">how it works</span></span></summary>
+<p class="how">Features use only what was known before each payment, so the model can't cheat by looking ahead. Random Cut Forest is unsupervised: it needs no labelled fraud, which matters when confirmed cases are few. Training and data stay inside AWS, encrypted with KMS.</p></details>
 </div><div lang="es">
 Devengo: detección de fraude en pagos
 <p>Arranqué la IA en esta fintech de pagos. Primer proyecto: un detector de fraude que marca los pagos salientes que no encajan con el historial de cada cliente, probado con pagos posteriores a los que usó para aprender y con umbrales ajustados para que una persona revise solo los sospechosos.</p>
-<span class="sub">2026 | i+d en ia | python, random cut forest, aws sagemaker | privado</span>
+<details><summary class="sub">2026 | i+d en ia | python, random cut forest, aws sagemaker | privado<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<p class="how">Las variables usan solo lo que se sabía antes de cada pago, para que el modelo no haga trampa mirando al futuro. Random Cut Forest es no supervisado: no necesita fraudes etiquetados, algo clave cuando hay pocos casos confirmados. El entrenamiento y los datos se quedan dentro de AWS, cifrados con KMS.</p></details>
 </div></li>
 
 <li><div lang="en">
@@ -121,11 +147,13 @@ Devengo: detección de fraude en pagos
 <li><div lang="en">
 Compas: a CRM that turns inbound email into leads
 <p>Sales teams miss buying signals buried in their inbox. Compas reads the Gmail inbox, spots the emails that show buying interest and turns them into leads to follow up. In daily use at Bartolomé Consultores.</p>
-<span class="sub">2026 | built solo | python, fastapi, supabase, react, docker | private</span>
+<details><summary class="sub">2026 | built solo | python, fastapi, supabase, react, docker | private<span class="opt"> | <span class="more">how it works</span></span></summary>
+<p class="how">Gmail is connected with OAuth and synced incrementally by a background worker, fetching only new messages. An LLM reads each one, decides whether it shows buying interest and creates the lead with its contact. Google Calendar stays in sync, and several companies share one deployment with their data kept apart.</p></details>
 </div><div lang="es">
 Compas: un CRM que convierte el correo entrante en oportunidades
 <p>Los equipos comerciales pierden señales de compra enterradas en la bandeja de entrada. Compas lee el correo de Gmail, detecta los mensajes con interés de compra y los convierte en oportunidades para hacer seguimiento. Se usa a diario en Bartolomé Consultores.</p>
-<span class="sub">2026 | en solitario | python, fastapi, supabase, react, docker | privado</span>
+<details><summary class="sub">2026 | en solitario | python, fastapi, supabase, react, docker | privado<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<p class="how">Gmail se conecta con OAuth y un proceso en segundo plano lo sincroniza de forma incremental, trayendo solo los mensajes nuevos. Un LLM lee cada uno, decide si muestra interés de compra y crea la oportunidad con su contacto. Google Calendar se mantiene sincronizado, y varias empresas comparten un mismo despliegue con sus datos separados.</p></details>
 </div></li>
 
 <li><div lang="en">
@@ -141,11 +169,13 @@ Bartolomé Consultores: sistemas de punto de venta
 <li><div lang="en">
 Cyberbootcamp Málaga: cybersecurity instructor
 <p>One of the UMA students chosen as instructors for a Google.org-funded program. Students wanted more practice, so we set up a CTF in under 24 hours. I built its main challenge: weak cipher → PyYAML RCE → SUID root.</p>
-<span class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">challenge code</a></span>
+<details><summary class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">challenge code</a><span class="opt"> | <span class="more">how it works</span></span></summary>
+<p class="how">A weak cipher hides the vulnerable endpoint. Behind it, the app loads YAML with an unsafe loader, which gives remote code execution. A misconfigured SUID binary then turns that shell into root. It all runs with Docker Compose, and the repo includes the full write-up.</p></details>
 </div><div lang="es">
 Cyberbootcamp Málaga: instructor de ciberseguridad
 <p>Uno de los estudiantes de la UMA elegidos como instructores para un programa financiado por Google.org. Los alumnos querían más práctica, así que montamos un CTF en menos de 24 horas. Hice su reto principal: cifrado débil → RCE con PyYAML → root por SUID.</p>
-<span class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">código del reto</a></span>
+<details><summary class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">código del reto</a><span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<p class="how">Un cifrado débil esconde el endpoint vulnerable. Detrás, la app carga YAML con un cargador inseguro, lo que da ejecución remota de código. Un binario SUID mal configurado convierte esa shell en root. Todo corre con Docker Compose y el repositorio incluye la solución completa.</p></details>
 </div></li>
 </ol>
 
