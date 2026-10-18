@@ -1,0 +1,172 @@
+<!doctype html>
+<!--
+  Hand-written HTML. No framework, no build step.
+  If you are reading the source, you are who I want to talk to:
+  albertobartolomeiruela@gmail.com
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Alberto Bartolomé</title>
+<meta name="description" content="Cybersecurity and AI, Málaga. Privacy research on ML models, and software that businesses use.">
+<meta property="og:title" content="Alberto Bartolomé">
+<meta property="og:description" content="Cybersecurity and AI, Málaga. Privacy research on ML models, and software that businesses use.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:,">
+<script>
+// Language: ?lang= if given, otherwise the browser's. Without JavaScript the page stays in English.
+var l = new URLSearchParams(location.search).get('lang') || navigator.language || '';
+document.documentElement.lang = l.slice(0, 2) === 'es' ? 'es' : 'en';
+</script>
+<style>
+html[lang=en] body [lang=es],html[lang=es] body [lang=en]{display:none}
+:root{--page:#fff;--bg:#f5f5ef;--fg:#111;--muted:#77776f;--bar:#2f7d61}
+@media (prefers-color-scheme:dark){:root{--page:#0f0f0e;--bg:#1b1b19;--fg:#deded6;--muted:#8f8f87;--bar:#2a6e56}}
+html{background:var(--page)}
+body{width:85%;max-width:1000px;margin:8px auto;background:var(--bg);color:var(--fg);font:10pt Verdana,Geneva,sans-serif}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+header{background:var(--bar);color:#fff;padding:3px 4px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.logo{border:1px solid #fff;padding:0 3px;font-weight:bold;font-size:9pt}
+header nav{margin-left:auto}
+.intro{padding:14px 12px 6px 34px;max-width:700px;line-height:1.5}
+ol{list-style:none;margin:6px 0 0;padding:0 12px 0 0;counter-reset:n}
+li{counter-increment:n;display:grid;grid-template-columns:34px 1fr;padding-bottom:10px}
+li::before{content:counter(n) ".";color:var(--muted);text-align:right;padding-right:6px}
+.site{font-size:8pt;color:var(--muted)}
+li p{font-size:9pt;line-height:1.5;margin:2px 0 1px;max-width:700px}
+.sub{font-size:7.5pt;color:var(--muted)}
+.sub a{text-decoration:underline}
+#about{padding:14px 12px 12px 34px}
+#about table{border-collapse:collapse;line-height:1.5}
+#about td{vertical-align:top;padding:1px 0}
+#about td:first-child{color:var(--muted);padding-right:12px;white-space:nowrap}
+footer{border-top:2px solid var(--bar);padding:14px 12px 18px;text-align:center}
+footer p{margin:0 0 10px}
+footer p a{text-decoration:underline}
+footer .sub a{text-decoration:none}
+@media (max-width:700px){
+  body{width:100%;margin:0;font-size:11pt}
+  li p{font-size:10pt}.sub{font-size:8.5pt}
+  .intro,#about{padding-left:12px}
+  li{grid-template-columns:28px 1fr}
+  #about td{display:block}#about td:first-child{padding-top:6px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<span class="logo">AB</span>
+<b>Alberto Bartolomé</b>
+<nav>
+<a href="mailto:albertobartolomeiruela@gmail.com">email</a> |
+<a href="https://github.com/Alman368">github</a> |
+<a href="https://www.linkedin.com/in/albertobartolomeiruela/">linkedin</a> |
+<span lang="en"><a href="?lang=es" hreflang="es">español</a></span><span lang="es"><a href="?lang=en" hreflang="en">english</a></span>
+</nav>
+</header>
+
+<p class="intro" lang="en">Final-year Cybersecurity &amp; AI student in Málaga. I build software that businesses run on, and I research how machine learning models leak private data and how to stop it.</p>
+<p class="intro" lang="es">Estudiante de último curso de Ciberseguridad e IA en Málaga. Construyo el software con el que trabajan empresas, e investigo cómo los modelos de machine learning filtran datos privados y cómo evitarlo.</p>
+
+<ol>
+<li><div lang="en">
+Membership inference in tabular foundation models
+<p>Models like TabPFN predict from private records placed in their context. Even against the published defense, an attacker can tell which records were there almost perfectly (0.87–1.00). My defense, SAG&#8209;Tab, lowers that in 144 of 144 comparisons, to about 0.6, for 0.2–3.8 accuracy points.</p>
+<span class="sub">2026, ongoing | bachelor's thesis, supervised by Leonardo Franco | python, pytorch | paper in preparation</span>
+</div><div lang="es">
+Inferencia de pertenencia en modelos fundacionales tabulares
+<p>Modelos como TabPFN predicen a partir de registros privados que reciben en su contexto. Incluso con la defensa publicada, un atacante distingue casi a la perfección qué registros estaban ahí (0,87–1,00). Mi defensa, SAG&#8209;Tab, lo reduce en 144 de 144 comparaciones, hasta cerca de 0,6, a cambio de 0,2–3,8 puntos de precisión.</p>
+<span class="sub">2026, en curso | TFG, tutor: Leonardo Franco | python, pytorch | artículo en preparación</span>
+</div></li>
+
+<li><div lang="en">
+<a href="https://fluwy.es">Fluwy: production planning for food manufacturers</a> <span class="site">(fluwy.es)</span>
+<p>Small food factories plan production on spreadsheets. Fluwy turns orders, recipes, staff and machine capacity into schedules and material requirements, and planners adjust the plan by talking to LLM agents. Two manufacturers use it in production.</p>
+<span class="sub">2026 | co-founder, product and sales | python, fastapi, or-tools, postgresql, react</span>
+</div><div lang="es">
+<a href="https://fluwy.es">Fluwy: planificación de producción para fábricas de alimentación</a> <span class="site">(fluwy.es)</span>
+<p>Las pequeñas fábricas de alimentación planifican en hojas de cálculo. Fluwy convierte pedidos, recetas, personal y capacidad de máquinas en planes de producción y necesidades de material, y el plan se ajusta hablando con agentes de IA. Dos fábricas lo usan en producción.</p>
+<span class="sub">2026 | cofundador, producto y ventas | python, fastapi, or-tools, postgresql, react</span>
+</div></li>
+
+<li><div lang="en">
+Devengo: fraud detection on payments
+<p>Brought in to start the AI work at a payments fintech. First project: a Random Cut Forest on AWS SageMaker that flags unusual outgoing payments against each customer's history, with temporal validation, calibrated thresholds and human review.</p>
+<span class="sub">2026 | ai r&amp;d | python, aws sagemaker | private</span>
+</div><div lang="es">
+Devengo: detección de fraude en pagos
+<p>Me incorporaron para arrancar la IA en una fintech de pagos. Primer proyecto: un Random Cut Forest en AWS SageMaker que marca pagos salientes anómalos según el historial de cada cliente, con validación temporal, umbrales calibrados y revisión humana.</p>
+<span class="sub">2026 | i+d en ia | python, aws sagemaker | privado</span>
+</div></li>
+
+<li><div lang="en">
+1st place and €10,000 at the EDINT Data Mining Hackathon
+<p>Latidos routes you to the nearest working defibrillator during a cardiac emergency. I built the model that predicts how reliable each defibrillator is.</p>
+<span class="sub">2026 | team | python, fastapi</span>
+</div><div lang="es">
+1.º puesto y 10.000 € en el EDINT Data Mining Hackathon
+<p>Latidos te guía hasta el desfibrilador operativo más cercano en una parada cardiaca. Hice el modelo que predice la fiabilidad de cada desfibrilador.</p>
+<span class="sub">2026 | en equipo | python, fastapi</span>
+</div></li>
+
+<li><div lang="en">
+Compas: a CRM that turns inbound email into leads
+<p>Sales teams miss buying signals buried in their inbox. Compas syncs Gmail, an AI classifier detects buying interest and opens a lead for follow-up. In daily use at Bartolomé Consultores.</p>
+<span class="sub">2026 | built solo | python, fastapi, supabase, react, docker | private</span>
+</div><div lang="es">
+Compas: un CRM que convierte el correo entrante en oportunidades
+<p>Los equipos comerciales pierden señales de compra enterradas en la bandeja de entrada. Compas sincroniza Gmail, un clasificador de IA detecta interés de compra y abre una oportunidad para hacer seguimiento. Se usa a diario en Bartolomé Consultores.</p>
+<span class="sub">2026 | en solitario | python, fastapi, supabase, react, docker | privado</span>
+</div></li>
+
+<li><div lang="en">
+Bartolomé Consultores: point-of-sale systems
+<p>Working here since I was 15. I built the backend for MyWaiter, a restaurant ordering app, and the automation that loads product catalogs into client databases. I also fix live POS systems on site and harden client networks on MikroTik.</p>
+<span class="sub">2021–present | backend and automation | python, sql, mikrotik</span>
+</div><div lang="es">
+Bartolomé Consultores: sistemas de punto de venta
+<p>Trabajo aquí desde los 15 años. Hice el backend de MyWaiter, una app de comandas para restaurantes, y la automatización que carga catálogos de producto en las bases de datos de clientes. Resuelvo incidencias en TPVs en producción y aseguro redes de clientes con MikroTik.</p>
+<span class="sub">2021–actualidad | backend y automatización | python, sql, mikrotik</span>
+</div></li>
+
+<li><div lang="en">
+Cyberbootcamp Málaga: cybersecurity instructor
+<p>Selected from UMA for a Google.org-funded train-the-trainer program. Students wanted more practice, so we set up a CTF in under 24 hours. I built its main challenge: weak cipher → PyYAML RCE → SUID root.</p>
+<span class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">challenge code</a></span>
+</div><div lang="es">
+Cyberbootcamp Málaga: instructor de ciberseguridad
+<p>Seleccionado por la UMA para un programa de formación de formadores financiado por Google.org. Los alumnos querían más práctica, así que montamos un CTF en menos de 24 horas. Hice su reto principal: cifrado débil → RCE con PyYAML → root por SUID.</p>
+<span class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">código del reto</a></span>
+</div></li>
+</ol>
+
+<section id="about">
+<table>
+<tr lang="en"><td>studying</td><td>BSc Cybersecurity &amp; AI, University of Málaga, expected 2027. First cohort of the first such degree in Spain.</td></tr>
+<tr lang="es"><td>estudios</td><td>Grado en Ingeniería en Ciberseguridad e IA, Universidad de Málaga, fin previsto en 2027. Primera promoción del primer grado de este tipo en España.</td></tr>
+<tr lang="en"><td>before</td><td>42 Málaga, Fundación Telefónica</td></tr>
+<tr lang="es"><td>antes</td><td>42 Málaga, Fundación Telefónica</td></tr>
+<tr lang="en"><td>honors</td><td>NLP, Deep Learning, Virtualized Systems</td></tr>
+<tr lang="es"><td>matrículas</td><td>PLN, Deep Learning, Sistemas Virtualizados</td></tr>
+<tr lang="en"><td>certs</td><td>NVIDIA DLI: deep learning, CUDA</td></tr>
+<tr lang="es"><td>certificados</td><td>NVIDIA DLI: deep learning, CUDA</td></tr>
+<tr lang="en"><td>languages</td><td>Spanish (native), English (C1, Cambridge)</td></tr>
+<tr lang="es"><td>idiomas</td><td>Español (nativo), inglés (C1, Cambridge)</td></tr>
+<tr lang="en"><td>off-screen</td><td>Conservatory-trained saxophonist</td></tr>
+<tr lang="es"><td>fuera de la pantalla</td><td>Saxofonista con estudios de conservatorio</td></tr>
+</table>
+</section>
+
+<footer>
+<p lang="en">Open to security and applied AI projects. Write to me at <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
+<p lang="es">Abierto a proyectos de seguridad e IA aplicada. Escríbeme a <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
+<p class="sub" lang="en">Updated October 2026 | <a href="https://github.com/Alman368/Alman368.github.io">source</a></p>
+<p class="sub" lang="es">Actualizado en octubre de 2026 | <a href="https://github.com/Alman368/Alman368.github.io">código fuente</a></p>
+</footer>
+
+</body>
+</html>
