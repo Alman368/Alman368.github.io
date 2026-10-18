@@ -31,7 +31,9 @@ a:hover{text-decoration:underline}
 header{background:var(--bar);color:#fff;padding:3px 4px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
 .logo{border:1px solid #fff;padding:0 3px;font-weight:bold;font-size:9pt}
 header nav{margin-left:auto}
-.intro{padding:14px 12px 6px 34px;max-width:700px;line-height:1.5}
+.intro{padding:14px 12px 8px 34px;max-width:700px;line-height:1.5}
+.intro p{margin:0 0 3px}
+.intro .sub{display:block;line-height:1.5}
 ol{list-style:none;margin:6px 0 0;padding:0 12px 0 0;counter-reset:n}
 li{counter-increment:n;display:grid;grid-template-columns:34px 1fr;padding-bottom:10px}
 li::before{content:counter(n) ".";color:var(--muted);text-align:right;padding-right:6px}
@@ -39,21 +41,15 @@ li::before{content:counter(n) ".";color:var(--muted);text-align:right;padding-ri
 li p{font-size:9pt;line-height:1.5;margin:2px 0 1px;max-width:700px}
 .sub{font-size:8pt;color:var(--muted)}
 .sub a{text-decoration:underline}
-#about{padding:16px 12px 14px 34px;font-size:9pt;max-width:700px}
-#about h2{font-size:8pt;font-weight:normal;color:var(--muted);margin:0 0 6px}
-#about table{border-collapse:collapse;line-height:1.5}
-#about td{vertical-align:top;padding:1px 0}
-#about td:first-child{color:var(--muted);padding-right:12px;white-space:nowrap}
 footer{border-top:2px solid var(--bar);padding:14px 12px 18px;text-align:center}
 footer p{margin:0 0 10px}
 footer p a{text-decoration:underline}
 footer .sub a{text-decoration:none}
 @media (max-width:700px){
   body{width:100%;margin:0;font-size:11pt}
-  li p,#about{font-size:10pt}.sub,#about h2{font-size:8.5pt}
-  .intro,#about{padding-left:12px}
+  li p{font-size:10pt}.sub{font-size:8.5pt}
+  .intro{padding-left:12px}
   li{grid-template-columns:28px 1fr}
-  #about td{display:block}#about td:first-child{padding-top:6px}
 }
 </style>
 </head>
@@ -70,8 +66,12 @@ footer .sub a{text-decoration:none}
 </nav>
 </header>
 
-<p class="intro" lang="en">Final-year Cybersecurity &amp; AI student in Málaga. I build software that businesses run on, and I research how machine learning models leak private data and how to stop it.</p>
-<p class="intro" lang="es">Estudiante de último curso de Ciberseguridad e IA en Málaga. Construyo el software con el que trabajan empresas, e investigo cómo los modelos de machine learning filtran datos privados y cómo evitarlo.</p>
+<div class="intro">
+<p lang="en">I build software that businesses run on, and I research how machine learning models leak private data and how to stop it.</p>
+<p lang="es">Construyo el software con el que trabajan empresas, e investigo cómo los modelos de machine learning filtran datos privados y cómo evitarlo.</p>
+<span class="sub" lang="en">final year of Spain's first Cybersecurity &amp; AI degree, University of Málaga (2027) | 42 Málaga | honors in NLP, Deep Learning, Virtualized Systems | NVIDIA DLI | English C1 | conservatory-trained saxophonist</span>
+<span class="sub" lang="es">último curso del primer grado de Ciberseguridad e IA de España, Universidad de Málaga (2027) | 42 Málaga | matrículas en PLN, Deep Learning, Sistemas Virtualizados | NVIDIA DLI | inglés C1 | saxofonista de conservatorio</span>
+</div>
 
 <ol>
 <li><div lang="en">
@@ -145,23 +145,6 @@ Cyberbootcamp Málaga: instructor de ciberseguridad
 </div></li>
 </ol>
 
-<section id="about">
-<h2><span lang="en">about</span><span lang="es">sobre mí</span></h2>
-<table>
-<tr lang="en"><td>studying</td><td>BSc Cybersecurity &amp; AI, University of Málaga, expected 2027. First cohort of the first such degree in Spain.</td></tr>
-<tr lang="es"><td>estudios</td><td>Grado en Ingeniería en Ciberseguridad e IA, Universidad de Málaga, fin previsto en 2027. Primera promoción del primer grado de este tipo en España.</td></tr>
-<tr lang="en"><td>before</td><td>42 Málaga, Fundación Telefónica</td></tr>
-<tr lang="es"><td>antes</td><td>42 Málaga, Fundación Telefónica</td></tr>
-<tr lang="en"><td>honors</td><td>NLP, Deep Learning, Virtualized Systems</td></tr>
-<tr lang="es"><td>matrículas</td><td>PLN, Deep Learning, Sistemas Virtualizados</td></tr>
-<tr lang="en"><td>certs</td><td>NVIDIA DLI: deep learning, CUDA</td></tr>
-<tr lang="es"><td>certificados</td><td>NVIDIA DLI: deep learning, CUDA</td></tr>
-<tr lang="en"><td>languages</td><td>Spanish (native), English (C1, Cambridge)</td></tr>
-<tr lang="es"><td>idiomas</td><td>Español (nativo), inglés (C1, Cambridge)</td></tr>
-<tr lang="en"><td>off-screen</td><td>Conservatory-trained saxophonist</td></tr>
-<tr lang="es"><td>fuera de la pantalla</td><td>Saxofonista con estudios de conservatorio</td></tr>
-</table>
-</section>
 
 <footer>
 <p lang="en">Open to security and applied AI projects. Write to me at <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
