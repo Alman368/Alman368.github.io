@@ -33,7 +33,6 @@ header{background:var(--bar);color:#fff;padding:3px 4px;display:flex;flex-wrap:w
 header nav{margin-left:auto}
 .intro{padding:14px 12px 8px 34px;max-width:700px;line-height:1.5}
 .intro p{margin:0 0 3px}
-.intro .sub{display:block;line-height:1.5}
 ol{list-style:none;margin:6px 0 0;padding:0 12px 0 0;counter-reset:n}
 li{counter-increment:n;display:grid;grid-template-columns:34px 1fr;padding-bottom:10px}
 li::before{content:counter(n) ".";color:var(--muted);text-align:right;padding-right:6px}
@@ -41,14 +40,21 @@ li::before{content:counter(n) ".";color:var(--muted);text-align:right;padding-ri
 li p{font-size:9pt;line-height:1.5;margin:2px 0 1px;max-width:700px}
 .sub{font-size:8pt;color:var(--muted)}
 .sub a{text-decoration:underline}
+#about{margin:4px 12px 0 34px;padding:12px 0 14px;max-width:700px;border-top:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
+#about h2{font-size:1em;font-weight:normal;margin:0 0 6px}
+#about table{border-collapse:collapse;font-size:9pt;line-height:1.5}
+#about td{vertical-align:top;padding:1px 0}
+#about td:first-child{color:var(--muted);padding-right:12px;white-space:nowrap}
 footer{border-top:2px solid var(--bar);padding:14px 12px 18px;text-align:center}
 footer p{margin:0 0 10px}
 footer p a{text-decoration:underline}
 footer .sub a{text-decoration:none}
 @media (max-width:700px){
   body{width:100%;margin:0;font-size:11pt}
-  li p{font-size:10pt}.sub{font-size:8.5pt}
+  li p,#about table{font-size:10pt}.sub{font-size:8.5pt}
   .intro{padding-left:12px}
+  #about{margin-left:12px}
+  #about td{display:block}#about td:first-child{padding-top:6px}
   li{grid-template-columns:28px 1fr}
 }
 </style>
@@ -67,10 +73,8 @@ footer .sub a{text-decoration:none}
 </header>
 
 <div class="intro">
-<p lang="en">I build software that businesses run on, and I research how machine learning models leak private data and how to stop it.</p>
-<p lang="es">Construyo el software con el que trabajan empresas, e investigo cómo los modelos de machine learning filtran datos privados y cómo evitarlo.</p>
-<span class="sub" lang="en">final year of Spain's first Cybersecurity &amp; AI degree, University of Málaga (2027) | 42 Málaga | honors in NLP, Deep Learning, Virtualized Systems | NVIDIA DLI | English C1 | conservatory-trained saxophonist</span>
-<span class="sub" lang="es">último curso del primer grado de Ciberseguridad e IA de España, Universidad de Málaga (2027) | 42 Málaga | matrículas en PLN, Deep Learning, Sistemas Virtualizados | NVIDIA DLI | inglés C1 | saxofonista de conservatorio</span>
+<p lang="en">Final-year Cybersecurity &amp; AI student at the University of Málaga. I build software that businesses run on, and I research how machine learning models leak private data and how to stop it.</p>
+<p lang="es">Estudiante de último curso de Ciberseguridad e IA en la Universidad de Málaga. Construyo el software con el que trabajan empresas, e investigo cómo los modelos de machine learning filtran datos privados y cómo evitarlo.</p>
 </div>
 
 <ol>
@@ -144,6 +148,24 @@ Cyberbootcamp Málaga: instructor de ciberseguridad
 <span class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">código del reto</a></span>
 </div></li>
 </ol>
+
+<section id="about">
+<h2><span lang="en">About</span><span lang="es">Sobre mí</span></h2>
+<table>
+<tr lang="en"><td>studying</td><td>BSc Cybersecurity &amp; AI, University of Málaga, expected 2027. First cohort of the first such degree in Spain.</td></tr>
+<tr lang="es"><td>estudios</td><td>Grado en Ingeniería en Ciberseguridad e IA, Universidad de Málaga, fin previsto en 2027. Primera promoción del primer grado de este tipo en España.</td></tr>
+<tr lang="en"><td>before</td><td>42 Málaga, Fundación Telefónica</td></tr>
+<tr lang="es"><td>antes</td><td>42 Málaga, Fundación Telefónica</td></tr>
+<tr lang="en"><td>honors</td><td>NLP, Deep Learning, Virtualized Systems</td></tr>
+<tr lang="es"><td>matrículas</td><td>PLN, Deep Learning, Sistemas Virtualizados</td></tr>
+<tr lang="en"><td>certs</td><td>NVIDIA DLI: deep learning, CUDA</td></tr>
+<tr lang="es"><td>certificados</td><td>NVIDIA DLI: deep learning, CUDA</td></tr>
+<tr lang="en"><td>languages</td><td>Spanish (native), English (C1, Cambridge)</td></tr>
+<tr lang="es"><td>idiomas</td><td>Español (nativo), inglés (C1, Cambridge)</td></tr>
+<tr lang="en"><td>off-screen</td><td>Conservatory-trained saxophonist</td></tr>
+<tr lang="es"><td>fuera de la pantalla</td><td>Saxofonista con estudios de conservatorio</td></tr>
+</table>
+</section>
 
 
 <footer>
