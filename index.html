@@ -22,7 +22,7 @@ document.documentElement.lang = l.slice(0, 2) === 'es' ? 'es' : 'en';
 </script>
 <style>
 html[lang=en] body [lang=es],html[lang=es] body [lang=en]{display:none}
-:root{color-scheme:light only;--page:#fff;--bg:#f8f8f7;--fg:#111;--muted:#66665f;--bar:#1d4ed8;--bar-fg:#fff}
+:root{color-scheme:light only;--page:#fff;--bg:#f8f8f7;--fg:#111;--muted:#66665f;--bar:#1d4ed8;--bar-fg:#fff;--line:#d4d4cf}
 html{background:var(--page)}
 body{width:85%;margin:8px auto;background:var(--bg);color:var(--fg);font:10pt Verdana,Geneva,sans-serif}
 a{color:inherit;text-decoration:none}
@@ -30,11 +30,19 @@ a:hover{text-decoration:underline}
 header{background:var(--bar);color:var(--bar-fg);padding:3px 4px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
 .logo{border:1px solid;padding:0 3px;font-weight:bold;font-size:9pt}
 header nav{margin-left:auto}
-.intro{padding:14px 12px 8px 34px;max-width:700px;line-height:1.5}
-.intro p{margin:0 0 3px}
-ol{list-style:none;margin:6px 0 0;padding:0 12px 0 0;counter-reset:n}
-li{counter-increment:n;display:grid;grid-template-columns:34px 1fr;padding-bottom:10px}
-li::before{content:counter(n) ".";color:var(--muted);text-align:right;padding-right:6px}
+header .sec{margin-left:0}
+.hero{display:flex;align-items:center;gap:18px;padding:22px 12px 18px 66px}
+.hero img{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:none}
+.hero h1{font-size:17pt;font-weight:normal;margin:0 0 4px}
+.tag{font-style:italic;color:var(--muted);line-height:1.5;margin:0 0 6px;max-width:560px}
+.meta{font-size:9pt;margin:0}
+.meta a{text-decoration:underline}
+ol{list-style:none;margin:0;padding:6px 12px 0 0;border-top:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
+li{display:grid;grid-template-columns:66px 1fr;padding:6px 0 10px;background:linear-gradient(var(--line),var(--line)) 66px 0/1px 100% no-repeat}
+li::before{content:attr(data-y);font-size:8pt;color:var(--muted);text-align:right;padding:2px 12px 0 0;white-space:nowrap}
+li>div{position:relative;padding-left:14px}
+li>div::before{content:"";position:absolute;left:-3px;top:.45em;width:7px;height:7px;border-radius:50%;background:var(--line)}
+li[data-y]>div::before{background:var(--muted)}
 .site{font-size:8pt;color:var(--muted)}
 li p{font-size:9pt;line-height:1.5;margin:2px 0 1px;max-width:700px}
 .sub{font-size:8pt;color:var(--muted)}
@@ -45,7 +53,7 @@ summary::-webkit-details-marker{display:none}
 .more::before{content:"+ "}
 details[open] .more::before{content:"\2212  "}
 .how{font-size:9pt;line-height:1.5;margin:6px 0 4px;padding-left:10px;max-width:690px;border-left:2px solid color-mix(in srgb,var(--muted) 40%,transparent)}
-#about{margin:4px 12px 0 34px;padding:12px 0 14px;max-width:700px;border-top:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
+#about{margin:4px 12px 0 80px;padding:12px 0 14px;max-width:700px;border-top:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
 #about h2{font-size:1em;font-weight:normal;margin:0 0 6px}
 #about table{border-collapse:collapse;font-size:9pt;line-height:1.5}
 #about td{vertical-align:top;padding:1px 0}
@@ -60,10 +68,10 @@ li.cur{background:color-mix(in srgb,var(--bar) 10%,transparent)}
 @media (max-width:700px){
   body{width:100%;margin:0;font-size:11pt}
   li p,#about table{font-size:10pt}.sub{font-size:8.5pt}
-  .intro{padding-left:12px}
+  .hero{padding:16px 12px 14px;gap:10px;flex-direction:column;align-items:flex-start}.hero img{width:72px;height:72px}.hero h1{font-size:15pt}
   #about{margin-left:12px}
   #about td{display:block}#about td:first-child{padding-top:6px}
-  li{grid-template-columns:28px 1fr}
+  li{grid-template-columns:44px 1fr;background-position:44px 0}li::before{padding-right:8px}
 }
 .print-only{display:none}
 @media print{
@@ -71,12 +79,14 @@ li.cur{background:color-mix(in srgb,var(--bar) 10%,transparent)}
   :root{--page:#fff;--bg:#fff;--fg:#000;--muted:#555}
   body{width:auto;max-width:none;margin:0;font-size:9pt}
   li p,.how,#about table{font-size:8.5pt}.sub{font-size:7.5pt}
-  header{background:none;color:#000;padding:0;border-bottom:1.5pt solid #000}
-  header .logo,header nav,.opt,footer{display:none}
-  header b{font-size:14pt}
+  header,.hero img,.meta{display:none}
+  .hero{padding:0 0 4px;border-bottom:1.5pt solid #000}
+  li{background:none}li>div::before{display:none}
+  .opt,footer{display:none}
+  .hero h1{font-size:14pt}
   .print-only{display:block;margin:4px 0 0;font-size:8.5pt;color:#555}
-  .intro,#about{padding-left:0;margin-left:0}
-  li{grid-template-columns:22px 1fr;break-inside:avoid}
+  #about{padding-left:0;margin-left:0}
+  li{grid-template-columns:36px 1fr;break-inside:avoid}
 }
 </style>
 </head>
@@ -84,100 +94,100 @@ li.cur{background:color-mix(in srgb,var(--bar) 10%,transparent)}
 
 <header>
 <span class="logo">AB</span>
-<b>Alberto Bartolomé Iruela</b>
-<nav>
-<a href="mailto:albertobartolomeiruela@gmail.com">email</a> |
-<a href="https://github.com/Alman368">github</a> |
-<a href="https://www.linkedin.com/in/albertobartolomeiruela/">linkedin</a> |
-<span lang="en"><a href="?lang=es" hreflang="es">español</a></span><span lang="es"><a href="?lang=en" hreflang="en">english</a></span>
-</nav>
+<nav class="sec"><span lang="en"><a href="#work">work</a> | <a href="#about">about</a> | <a href="#contact">contact</a></span><span lang="es"><a href="#work">trabajo</a> | <a href="#about">sobre mí</a> | <a href="#contact">contacto</a></span></nav>
+<nav><span lang="en"><a href="?lang=es" hreflang="es">español</a></span><span lang="es"><a href="?lang=en" hreflang="en">english</a></span></nav>
 </header>
 <p class="print-only">albertobartolomeiruela@gmail.com · github.com/Alman368 · linkedin.com/in/albertobartolomeiruela · alman368.github.io</p>
 
-<div class="intro">
-<p lang="en">Final-year Cybersecurity &amp; AI student at the University of Málaga. I build software that businesses run on, and I research how machine learning models leak private data and how to stop it.</p>
-<p lang="es">Estudiante de último curso de Ciberseguridad e IA en la Universidad de Málaga. Construyo el software con el que trabajan empresas, e investigo cómo los modelos de machine learning filtran datos privados y cómo evitarlo.</p>
+<div class="hero">
+<img src="me.png" alt="Alberto Bartolomé Iruela">
+<div>
+<h1>Alberto Bartolomé Iruela</h1>
+<p class="tag" lang="en">I research how machine learning models leak private data and how to stop it, and I build software that businesses run on.</p>
+<p class="tag" lang="es">Investigo cómo los modelos de machine learning filtran datos privados y cómo evitarlo, y construyo el software con el que trabajan empresas.</p>
+<p class="meta"><span lang="en">Final-year Cybersecurity &amp; AI, University of Málaga</span><span lang="es">Último curso de Ciberseguridad e IA, Universidad de Málaga</span> · <a href="mailto:albertobartolomeiruela@gmail.com">email</a> · <a href="https://github.com/Alman368">github</a> · <a href="https://www.linkedin.com/in/albertobartolomeiruela/">linkedin</a></p>
+</div>
 </div>
 
-<ol>
-<li><div lang="en">
+<ol id="work">
+<li data-y="2026"><div lang="en">
 How tabular foundation models leak private data, and a defense
 <p>Models like TabPFN answer using private records placed in their context, and an attacker can tell which records were there. I showed that the published defense barely helps: an attacker who knows it still tells them apart almost perfectly. My defense, SAG&#8209;Tab, cuts the leak by 10–38% depending on the model, losing at most 3.8 points of accuracy.</p>
-<details><summary class="sub">2026, ongoing | bachelor's thesis, supervised by Leonardo Franco | python, pytorch | paper in preparation<span class="opt"> | <span class="more">how it works</span></span></summary>
+<details><summary class="sub">ongoing | bachelor's thesis, supervised by Leonardo Franco | python, pytorch | paper in preparation<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">The attacker reads the model's attention from each question to the private records, plus its predicted probabilities, and learns what "this record was in the context" looks like on a separate copy it controls. SAG&#8209;Tab groups records of the same class and makes them share one averaged attention key, so no single record stands out. Fixed protocol: four model configurations, two datasets, twenty shared data splits, every result traceable to hashed evidence.</p></details>
 </div><div lang="es">
 Cómo los modelos fundacionales tabulares filtran datos privados, y una defensa
 <p>Modelos como TabPFN responden usando registros privados que reciben en su contexto, y un atacante puede saber cuáles estaban ahí. Demostré que la defensa publicada apenas ayuda: un atacante que la conoce sigue distinguiéndolos casi a la perfección. Mi defensa, SAG&#8209;Tab, reduce la fuga entre un 10 % y un 38 % según el modelo, perdiendo como mucho 3,8 puntos de precisión.</p>
-<details><summary class="sub">2026, en curso | TFG, tutor: Leonardo Franco | python, pytorch | artículo en preparación<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<details><summary class="sub">en curso | TFG, tutor: Leonardo Franco | python, pytorch | artículo en preparación<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">El atacante lee la atención del modelo desde cada consulta hacia los registros privados, junto con sus probabilidades, y aprende qué aspecto tiene "este registro estaba en el contexto" sobre una copia aparte que controla él. SAG&#8209;Tab agrupa registros de la misma clase y les hace compartir una clave de atención promediada, para que ninguno destaque. Protocolo fijo: cuatro configuraciones de modelo, dos datasets, veinte particiones de datos compartidas y cada resultado trazable a evidencia con hash.</p></details>
 </div></li>
 
 <li><div lang="en">
 <a href="https://fluwy.es">Fluwy: production planning for food manufacturers</a> <span class="site">(fluwy.es)</span>
 <p>Small food factories plan production on spreadsheets. Fluwy turns orders, recipes, staff and machine capacity into schedules and material requirements, and planners adjust the plan by talking to LLM agents. Two manufacturers use it in production.</p>
-<details><summary class="sub">2026 | co-founder, product and sales | python, fastapi, or-tools, postgresql, react<span class="opt"> | <span class="more">how it works</span></span></summary>
+<details><summary class="sub">co-founder, product and sales | python, fastapi, or-tools, postgresql, react<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">An OR-Tools solver builds the schedule from orders, recipes, staff and machine capacity. LLM agents change the underlying data (orders, recipes, capacities) in a sandbox, so the planner asks in plain words and the solver re-plans. Multi-tenant FastAPI and PostgreSQL, with subscription billing.</p></details>
 </div><div lang="es">
 <a href="https://fluwy.es">Fluwy: planificación de producción para fábricas de alimentación</a> <span class="site">(fluwy.es)</span>
 <p>Las pequeñas fábricas de alimentación planifican en hojas de cálculo. Fluwy convierte pedidos, recetas, personal y capacidad de máquinas en planes de producción y necesidades de material, y el plan se ajusta hablando con agentes de IA. Dos fábricas lo usan en producción.</p>
-<details><summary class="sub">2026 | cofundador, producto y ventas | python, fastapi, or-tools, postgresql, react<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<details><summary class="sub">cofundador, producto y ventas | python, fastapi, or-tools, postgresql, react<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Un solver de OR-Tools construye el plan a partir de pedidos, recetas, personal y capacidad de máquinas. Agentes de IA modifican los datos (pedidos, recetas, capacidades) en un entorno aislado, así que el planificador lo pide con palabras y el solver vuelve a planificar. FastAPI y PostgreSQL multiempresa, con facturación por suscripción.</p></details>
 </div></li>
 
 <li><div lang="en">
 Devengo: fraud detection on payments
 <p>I started the AI work at this payments fintech. First project: a fraud detector that flags outgoing payments that don't match a customer's own history, tested on later payments than it learned from, with thresholds tuned so a person reviews only the suspicious ones.</p>
-<details><summary class="sub">2026 | ai r&amp;d | python, random cut forest, aws sagemaker | private<span class="opt"> | <span class="more">how it works</span></span></summary>
+<details><summary class="sub">ai r&amp;d | python, random cut forest, aws sagemaker | private<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">Features use only what was known before each payment, so the model can't cheat by looking ahead. Random Cut Forest is unsupervised: it needs no labelled fraud, which matters when confirmed cases are few. Training and data stay inside AWS, encrypted with KMS.</p></details>
 </div><div lang="es">
 Devengo: detección de fraude en pagos
 <p>Arranqué la IA en esta fintech de pagos. Primer proyecto: un detector de fraude que marca los pagos salientes que no encajan con el historial de cada cliente, probado con pagos posteriores a los que usó para aprender y con umbrales ajustados para que una persona revise solo los sospechosos.</p>
-<details><summary class="sub">2026 | i+d en ia | python, random cut forest, aws sagemaker | privado<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<details><summary class="sub">i+d en ia | python, random cut forest, aws sagemaker | privado<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Las variables usan solo lo que se sabía antes de cada pago, para que el modelo no haga trampa mirando al futuro. Random Cut Forest es no supervisado: no necesita fraudes etiquetados, algo clave cuando hay pocos casos confirmados. El entrenamiento y los datos se quedan dentro de AWS, cifrados con KMS.</p></details>
 </div></li>
 
 <li><div lang="en">
 1st place and €10,000 at the EDINT Data Mining Hackathon
 <p>Latidos routes you to the nearest working defibrillator during a cardiac emergency. I built the model that predicts which defibrillators actually work, so nobody gets sent to a broken one.</p>
-<span class="sub">2026 | team | python, fastapi</span>
+<span class="sub">team | python, fastapi</span>
 </div><div lang="es">
 1.º puesto y 10.000 € en el EDINT Data Mining Hackathon
 <p>Latidos te guía hasta el desfibrilador operativo más cercano en una parada cardiaca. Hice el modelo que predice qué desfibriladores funcionan de verdad, para no mandar a nadie a uno roto.</p>
-<span class="sub">2026 | en equipo | python, fastapi</span>
+<span class="sub">en equipo | python, fastapi</span>
 </div></li>
 
 <li><div lang="en">
 <a href="https://schedulo.es">Compas: a CRM that turns inbound email into leads</a> <span class="site">(schedulo.es)</span>
 <p>Sales teams miss buying signals buried in their inbox. Compas reads the Gmail inbox, spots the emails that show buying interest and turns them into leads to follow up. In daily use at Bartolomé Consultores.</p>
-<details><summary class="sub">2026 | built solo | python, fastapi, supabase, react, docker<span class="opt"> | <span class="more">how it works</span></span></summary>
+<details><summary class="sub">built solo | python, fastapi, supabase, react, docker<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">Gmail is connected with OAuth and synced incrementally by a background worker, fetching only new messages. An LLM reads each one, decides whether it shows buying interest and creates the lead with its contact. Google Calendar stays in sync, and several companies share one deployment with their data kept apart.</p></details>
 </div><div lang="es">
 <a href="https://schedulo.es">Compas: un CRM que convierte el correo entrante en oportunidades</a> <span class="site">(schedulo.es)</span>
 <p>Los equipos comerciales pierden señales de compra enterradas en la bandeja de entrada. Compas lee el correo de Gmail, detecta los mensajes con interés de compra y los convierte en oportunidades para hacer seguimiento. Se usa a diario en Bartolomé Consultores.</p>
-<details><summary class="sub">2026 | en solitario | python, fastapi, supabase, react, docker<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<details><summary class="sub">en solitario | python, fastapi, supabase, react, docker<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Gmail se conecta con OAuth y un proceso en segundo plano lo sincroniza de forma incremental, trayendo solo los mensajes nuevos. Un LLM lee cada uno, decide si muestra interés de compra y crea la oportunidad con su contacto. Google Calendar se mantiene sincronizado, y varias empresas comparten un mismo despliegue con sus datos separados.</p></details>
 </div></li>
 
-<li><div lang="en">
-Bartolomé Consultores: point-of-sale systems
-<p>Working here since I was 15. I built the backend for MyWaiter, a restaurant ordering app, and the automation that loads product catalogs into client databases. I also fix live POS systems on site and harden client networks on MikroTik.</p>
-<span class="sub">2021–present | backend and automation | python, sql, mikrotik</span>
-</div><div lang="es">
-Bartolomé Consultores: sistemas de punto de venta
-<p>Trabajo aquí desde los 15 años. Hice el backend de MyWaiter, una app de comandas para restaurantes, y la automatización que carga catálogos de producto en las bases de datos de clientes. Resuelvo incidencias en TPVs en producción y aseguro redes de clientes con MikroTik.</p>
-<span class="sub">2021–actualidad | backend y automatización | python, sql, mikrotik</span>
-</div></li>
-
-<li><div lang="en">
+<li data-y="2025"><div lang="en">
 Cyberbootcamp Málaga: cybersecurity instructor
 <p>One of the UMA students chosen as instructors for a Google.org-funded program. Students wanted more practice, so we set up a CTF in under 24 hours. I built its main challenge: weak cipher → PyYAML RCE → SUID root.</p>
-<details><summary class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">code</a><span class="opt"> | <span class="more">how it works</span></span></summary>
+<details><summary class="sub">instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">code</a><span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">A weak cipher hides the vulnerable endpoint. Behind it, the app loads YAML with an unsafe loader, which gives remote code execution. A misconfigured SUID binary then turns that shell into root. It all runs with Docker Compose, and the repo includes the full write-up.</p></details>
 </div><div lang="es">
 Cyberbootcamp Málaga: instructor de ciberseguridad
 <p>Uno de los estudiantes de la UMA elegidos como instructores para un programa financiado por Google.org. Los alumnos querían más práctica, así que montamos un CTF en menos de 24 horas. Hice su reto principal: cifrado débil → RCE con PyYAML → root por SUID.</p>
-<details><summary class="sub">2025 | instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">código</a><span class="opt"> | <span class="more">cómo funciona</span></span></summary>
+<details><summary class="sub">instructor, 80 h | python, docker | <a href="https://github.com/Alman368/hackfest">código</a><span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Un cifrado débil esconde el endpoint vulnerable. Detrás, la app carga YAML con un cargador inseguro, lo que da ejecución remota de código. Un binario SUID mal configurado convierte esa shell en root. Todo corre con Docker Compose y el repositorio incluye la solución completa.</p></details>
+</div></li>
+
+<li data-y="2021–"><div lang="en">
+Bartolomé Consultores: point-of-sale systems
+<p>Working here since I was 15. I built the backend for MyWaiter, a restaurant ordering app, and the automation that loads product catalogs into client databases. I also fix live POS systems on site and harden client networks on MikroTik.</p>
+<span class="sub">backend and automation | python, sql, mikrotik</span>
+</div><div lang="es">
+Bartolomé Consultores: sistemas de punto de venta
+<p>Trabajo aquí desde los 15 años. Hice el backend de MyWaiter, una app de comandas para restaurantes, y la automatización que carga catálogos de producto en las bases de datos de clientes. Resuelvo incidencias en TPVs en producción y aseguro redes de clientes con MikroTik.</p>
+<span class="sub">backend y automatización | python, sql, mikrotik</span>
 </div></li>
 </ol>
 
@@ -200,7 +210,7 @@ Cyberbootcamp Málaga: instructor de ciberseguridad
 </section>
 
 
-<footer>
+<footer id="contact">
 <p lang="en">Open to security and applied AI projects. Write to me at <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
 <p lang="es">Abierto a proyectos de seguridad e IA aplicada. Escríbeme a <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
 <p class="sub" lang="en">Updated October 2026 | <a href="https://github.com/Alman368/Alman368.github.io">source</a><span class="keys"> | j/k to move, o to open, enter for details</span></p>
