@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light only">
 <title>Alberto Bartolomé Iruela</title>
 <meta name="description" content="Cybersecurity and AI, Málaga. Privacy research on ML models, and software that businesses use.">
 <meta property="og:title" content="Alberto Bartolomé Iruela">
@@ -22,8 +22,7 @@ document.documentElement.lang = l.slice(0, 2) === 'es' ? 'es' : 'en';
 </script>
 <style>
 html[lang=en] body [lang=es],html[lang=es] body [lang=en]{display:none}
-:root{--page:#fff;--bg:#f8f8f7;--fg:#111;--muted:#66665f;--bar:#ea580c;--bar-fg:#1c1917}
-@media (prefers-color-scheme:dark){:root{--page:#0f0f0e;--bg:#1b1b1b;--fg:#deded6;--muted:#8f8f8a;--bar:#ea580c}}
+:root{color-scheme:light only;--page:#fff;--bg:#f8f8f7;--fg:#111;--muted:#66665f;--bar:#ea580c;--bar-fg:#1c1917}
 html{background:var(--page)}
 body{width:85%;max-width:1000px;margin:8px auto;background:var(--bg);color:var(--fg);font:10pt Verdana,Geneva,sans-serif}
 a{color:inherit;text-decoration:none}
