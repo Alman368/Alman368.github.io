@@ -36,7 +36,10 @@ header .sec{margin-left:0}
 .hero h1{font-size:17pt;font-weight:normal;margin:0 0 4px}
 .tag{font-style:italic;color:var(--muted);line-height:1.5;margin:0 0 6px;max-width:560px}
 .meta{font-size:9pt;margin:0}
-.meta a{text-decoration:underline}
+.icons{display:flex;gap:7px;margin-top:10px}
+.icons a{display:block;color:var(--fg)}
+.icons a:hover{color:var(--bar)}
+.icons svg{display:block;width:28px;height:28px;fill:currentColor}
 ol{list-style:none;margin:0;padding:6px 12px 0 0;border-top:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
 li{display:grid;grid-template-columns:66px 1fr;padding:6px 0 10px;background:linear-gradient(var(--line),var(--line)) 66px 0/1px 100% no-repeat}
 li::before{content:attr(data-y);font-size:8pt;color:var(--muted);text-align:right;padding:2px 12px 0 0;white-space:nowrap}
@@ -79,7 +82,7 @@ li.cur{background:color-mix(in srgb,var(--bar) 10%,transparent)}
   :root{--page:#fff;--bg:#fff;--fg:#000;--muted:#555}
   body{width:auto;max-width:none;margin:0;font-size:9pt}
   li p,.how,#about table{font-size:8.5pt}.sub{font-size:7.5pt}
-  header,.hero img,.meta{display:none}
+  header,.hero img,.icons{display:none}
   .hero{padding:0 0 4px;border-bottom:1.5pt solid #000}
   li{background:none}li>div::before{display:none}
   .opt,footer{display:none}
@@ -105,7 +108,8 @@ li.cur{background:color-mix(in srgb,var(--bar) 10%,transparent)}
 <h1>Alberto Bartolomé Iruela</h1>
 <p class="tag" lang="en">I research how machine learning models leak private data and how to stop it, and I build software that businesses run on.</p>
 <p class="tag" lang="es">Investigo cómo los modelos de machine learning filtran datos privados y cómo evitarlo, y construyo el software con el que trabajan empresas.</p>
-<p class="meta"><span lang="en">Final-year Cybersecurity &amp; AI, University of Málaga</span><span lang="es">Último curso de Ciberseguridad e IA, Universidad de Málaga</span> · <a href="mailto:albertobartolomeiruela@gmail.com">email</a> · <a href="https://github.com/Alman368">github</a> · <a href="https://www.linkedin.com/in/albertobartolomeiruela/">linkedin</a></p>
+<p class="meta"><span lang="en">Final-year Cybersecurity &amp; AI, University of Málaga</span><span lang="es">Último curso de Ciberseguridad e IA, Universidad de Málaga</span></p>
+<p class="icons"><a href="mailto:albertobartolomeiruela@gmail.com" aria-label="Email" title="email"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"/><path d="M6.5 8h11a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5zm.6 1.2v.3L12 13l4.9-3.5v-.3zm-.1 1.5V15h10v-4.3L12 14.3z" fill="#fff"/></svg></a><a href="https://github.com/Alman368" aria-label="GitHub" title="github"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a><a href="https://www.linkedin.com/in/albertobartolomeiruela/" aria-label="LinkedIn" title="linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"/><path d="M7 10h2.5v7.5H7zm1.25-3.9a1.45 1.45 0 1 1 0 2.9 1.45 1.45 0 0 1 0-2.9zM11 10h2.4v1.05c.35-.65 1.2-1.25 2.45-1.25 2.55 0 3.05 1.6 3.05 3.7v4H16.4v-3.55c0-.85-.02-1.95-1.2-1.95-1.2 0-1.38.93-1.38 1.9v3.6H11z" fill="#fff"/></svg></a></p>
 </div>
 </div>
 
@@ -135,12 +139,12 @@ Cómo los modelos fundacionales tabulares filtran datos privados, y una defensa
 </div></li>
 
 <li><div lang="en">
-Devengo: fraud detection on payments
+<a href="https://www.devengo.com">Devengo: fraud detection on payments</a> <span class="site">(devengo.com)</span>
 <p>I started the AI work at this payments fintech. First project: a fraud detector that flags outgoing payments that don't match a customer's own history, tested on later payments than it learned from, with thresholds tuned so a person reviews only the suspicious ones.</p>
 <details><summary class="sub">ai r&amp;d | python, random cut forest, aws sagemaker | private<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">Features use only what was known before each payment, so the model can't cheat by looking ahead. Random Cut Forest is unsupervised: it needs no labelled fraud, which matters when confirmed cases are few. Training and data stay inside AWS, encrypted with KMS.</p></details>
 </div><div lang="es">
-Devengo: detección de fraude en pagos
+<a href="https://www.devengo.com">Devengo: detección de fraude en pagos</a> <span class="site">(devengo.com)</span>
 <p>Arranqué la IA en esta fintech de pagos. Primer proyecto: un detector de fraude que marca los pagos salientes que no encajan con el historial de cada cliente, probado con pagos posteriores a los que usó para aprender y con umbrales ajustados para que una persona revise solo los sospechosos.</p>
 <details><summary class="sub">i+d en ia | python, random cut forest, aws sagemaker | privado<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Las variables usan solo lo que se sabía antes de cada pago, para que el modelo no haga trampa mirando al futuro. Random Cut Forest es no supervisado: no necesita fraudes etiquetados, algo clave cuando hay pocos casos confirmados. El entrenamiento y los datos se quedan dentro de AWS, cifrados con KMS.</p></details>
@@ -181,11 +185,11 @@ Cyberbootcamp Málaga: instructor de ciberseguridad
 </div></li>
 
 <li data-y="2021–"><div lang="en">
-Bartolomé Consultores: point-of-sale systems
+<a href="https://www.bartolomeconsultores.com">Bartolomé Consultores: point-of-sale systems</a> <span class="site">(bartolomeconsultores.com)</span>
 <p>Working here since I was 15. I built the backend for MyWaiter, a restaurant ordering app, and the automation that loads product catalogs into client databases. I also fix live POS systems on site and harden client networks on MikroTik.</p>
 <span class="sub">backend and automation | python, sql, mikrotik</span>
 </div><div lang="es">
-Bartolomé Consultores: sistemas de punto de venta
+<a href="https://www.bartolomeconsultores.com">Bartolomé Consultores: sistemas de punto de venta</a> <span class="site">(bartolomeconsultores.com)</span>
 <p>Trabajo aquí desde los 15 años. Hice el backend de MyWaiter, una app de comandas para restaurantes, y la automatización que carga catálogos de producto en las bases de datos de clientes. Resuelvo incidencias en TPVs en producción y aseguro redes de clientes con MikroTik.</p>
 <span class="sub">backend y automatización | python, sql, mikrotik</span>
 </div></li>
@@ -211,8 +215,8 @@ Bartolomé Consultores: sistemas de punto de venta
 
 
 <footer id="contact">
-<p lang="en">Open to security and applied AI projects. Write to me at <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
-<p lang="es">Abierto a proyectos de seguridad e IA aplicada. Escríbeme a <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
+<p lang="en">Open to applied AI and cybersecurity projects. Write to me at <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
+<p lang="es">Abierto a proyectos de IA aplicada y ciberseguridad. Escríbeme a <a href="mailto:albertobartolomeiruela@gmail.com">albertobartolomeiruela@gmail.com</a>.</p>
 <p class="sub" lang="en">Updated October 2026 | <a href="https://github.com/Alman368/Alman368.github.io">source</a><span class="keys"> | j/k to move, o to open, enter for details</span></p>
 <p class="sub" lang="es">Actualizado en octubre de 2026 | <a href="https://github.com/Alman368/Alman368.github.io">código fuente</a><span class="keys"> | j/k para moverte, o para abrir, enter para ver detalles</span></p>
 </footer>
