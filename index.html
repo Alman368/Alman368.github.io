@@ -47,6 +47,7 @@ li>div{position:relative;padding-left:14px}
 li>div::before{content:"";position:absolute;left:-3px;top:.45em;width:7px;height:7px;border-radius:50%;background:var(--line)}
 li[data-y]>div::before{background:var(--muted)}
 .site{font-size:8pt;color:var(--muted)}
+.site a{text-decoration:underline}
 li p{font-size:9pt;line-height:1.5;margin:2px 0 1px;max-width:700px}
 .sub{font-size:8pt;color:var(--muted)}
 .sub a{text-decoration:underline}
@@ -127,24 +128,24 @@ Cómo los modelos fundacionales tabulares filtran datos privados, y una defensa
 </div></li>
 
 <li><div lang="en">
-<a href="https://fluwy.es">Fluwy: production planning for food manufacturers</a> <span class="site">(fluwy.es)</span>
+Fluwy: production planning for food manufacturers <span class="site">(<a href="https://fluwy.es">fluwy.es</a>)</span>
 <p>Small food factories plan production on spreadsheets. Fluwy turns orders, recipes, staff and machine capacity into schedules and material requirements, and planners adjust the plan by talking to LLM agents. Two manufacturers use it in production.</p>
 <details><summary class="sub">co-founder, product and sales | python, fastapi, or-tools, postgresql, react<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">An OR-Tools solver builds the schedule from orders, recipes, staff and machine capacity. LLM agents change the underlying data (orders, recipes, capacities) in a sandbox, so the planner asks in plain words and the solver re-plans. Multi-tenant FastAPI and PostgreSQL, with subscription billing.</p></details>
 </div><div lang="es">
-<a href="https://fluwy.es">Fluwy: planificación de producción para fábricas de alimentación</a> <span class="site">(fluwy.es)</span>
+Fluwy: planificación de producción para fábricas de alimentación <span class="site">(<a href="https://fluwy.es">fluwy.es</a>)</span>
 <p>Las pequeñas fábricas de alimentación planifican en hojas de cálculo. Fluwy convierte pedidos, recetas, personal y capacidad de máquinas en planes de producción y necesidades de material, y el plan se ajusta hablando con agentes de IA. Dos fábricas lo usan en producción.</p>
 <details><summary class="sub">cofundador, producto y ventas | python, fastapi, or-tools, postgresql, react<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Un solver de OR-Tools construye el plan a partir de pedidos, recetas, personal y capacidad de máquinas. Agentes de IA modifican los datos (pedidos, recetas, capacidades) en un entorno aislado, así que el planificador lo pide con palabras y el solver vuelve a planificar. FastAPI y PostgreSQL multiempresa, con facturación por suscripción.</p></details>
 </div></li>
 
 <li><div lang="en">
-<a href="https://www.devengo.com">Devengo: fraud detection on payments</a> <span class="site">(devengo.com)</span>
+Devengo: fraud detection on payments <span class="site">(<a href="https://www.devengo.com">devengo.com</a>)</span>
 <p>I started the AI work at this payments fintech. First project: a fraud detector that flags outgoing payments that don't match a customer's own history, tested on later payments than it learned from, with thresholds tuned so a person reviews only the suspicious ones.</p>
 <details><summary class="sub">ai r&amp;d | python, random cut forest, aws sagemaker | private<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">Features use only what was known before each payment, so the model can't cheat by looking ahead. Random Cut Forest is unsupervised: it needs no labelled fraud, which matters when confirmed cases are few. Training and data stay inside AWS, encrypted with KMS.</p></details>
 </div><div lang="es">
-<a href="https://www.devengo.com">Devengo: detección de fraude en pagos</a> <span class="site">(devengo.com)</span>
+Devengo: detección de fraude en pagos <span class="site">(<a href="https://www.devengo.com">devengo.com</a>)</span>
 <p>Arranqué la IA en esta fintech de pagos. Primer proyecto: un detector de fraude que marca los pagos salientes que no encajan con el historial de cada cliente, probado con pagos posteriores a los que usó para aprender y con umbrales ajustados para que una persona revise solo los sospechosos.</p>
 <details><summary class="sub">i+d en ia | python, random cut forest, aws sagemaker | privado<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Las variables usan solo lo que se sabía antes de cada pago, para que el modelo no haga trampa mirando al futuro. Random Cut Forest es no supervisado: no necesita fraudes etiquetados, algo clave cuando hay pocos casos confirmados. El entrenamiento y los datos se quedan dentro de AWS, cifrados con KMS.</p></details>
@@ -161,12 +162,12 @@ Cómo los modelos fundacionales tabulares filtran datos privados, y una defensa
 </div></li>
 
 <li><div lang="en">
-<a href="https://schedulo.es">Compas: a CRM that turns inbound email into leads</a> <span class="site">(schedulo.es)</span>
+Compas: a CRM that turns inbound email into leads <span class="site">(<a href="https://schedulo.es">schedulo.es</a>)</span>
 <p>Sales teams miss buying signals buried in their inbox. Compas reads the Gmail inbox, spots the emails that show buying interest and turns them into leads to follow up. In daily use at Bartolomé Consultores.</p>
 <details><summary class="sub">built solo | python, fastapi, supabase, react, docker<span class="opt"> | <span class="more">how it works</span></span></summary>
 <p class="how">Gmail is connected with OAuth and synced incrementally by a background worker, fetching only new messages. An LLM reads each one, decides whether it shows buying interest and creates the lead with its contact. Google Calendar stays in sync, and several companies share one deployment with their data kept apart.</p></details>
 </div><div lang="es">
-<a href="https://schedulo.es">Compas: un CRM que convierte el correo entrante en oportunidades</a> <span class="site">(schedulo.es)</span>
+Compas: un CRM que convierte el correo entrante en oportunidades <span class="site">(<a href="https://schedulo.es">schedulo.es</a>)</span>
 <p>Los equipos comerciales pierden señales de compra enterradas en la bandeja de entrada. Compas lee el correo de Gmail, detecta los mensajes con interés de compra y los convierte en oportunidades para hacer seguimiento. Se usa a diario en Bartolomé Consultores.</p>
 <details><summary class="sub">en solitario | python, fastapi, supabase, react, docker<span class="opt"> | <span class="more">cómo funciona</span></span></summary>
 <p class="how">Gmail se conecta con OAuth y un proceso en segundo plano lo sincroniza de forma incremental, trayendo solo los mensajes nuevos. Un LLM lee cada uno, decide si muestra interés de compra y crea la oportunidad con su contacto. Google Calendar se mantiene sincronizado, y varias empresas comparten un mismo despliegue con sus datos separados.</p></details>
@@ -185,11 +186,11 @@ Cyberbootcamp Málaga: instructor de ciberseguridad
 </div></li>
 
 <li data-y="2021–"><div lang="en">
-<a href="https://www.bartolomeconsultores.com">Bartolomé Consultores: point-of-sale systems</a> <span class="site">(bartolomeconsultores.com)</span>
+Bartolomé Consultores: point-of-sale systems <span class="site">(<a href="https://www.bartolomeconsultores.com">bartolomeconsultores.com</a>)</span>
 <p>Working here since I was 15. I built the backend for MyWaiter, a restaurant ordering app, and the automation that loads product catalogs into client databases. I also fix live POS systems on site and harden client networks on MikroTik.</p>
 <span class="sub">backend and automation | python, sql, mikrotik</span>
 </div><div lang="es">
-<a href="https://www.bartolomeconsultores.com">Bartolomé Consultores: sistemas de punto de venta</a> <span class="site">(bartolomeconsultores.com)</span>
+Bartolomé Consultores: sistemas de punto de venta <span class="site">(<a href="https://www.bartolomeconsultores.com">bartolomeconsultores.com</a>)</span>
 <p>Trabajo aquí desde los 15 años. Hice el backend de MyWaiter, una app de comandas para restaurantes, y la automatización que carga catálogos de producto en las bases de datos de clientes. Resuelvo incidencias en TPVs en producción y aseguro redes de clientes con MikroTik.</p>
 <span class="sub">backend y automatización | python, sql, mikrotik</span>
 </div></li>
