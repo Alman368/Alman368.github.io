@@ -57,8 +57,11 @@ summary::-webkit-details-marker{display:none}
 .more::before{content:"+ "}
 details[open] .more::before{content:"\2212  "}
 .how{font-size:9pt;line-height:1.5;margin:6px 0 4px;padding-left:10px;max-width:690px;border-left:2px solid color-mix(in srgb,var(--muted) 40%,transparent)}
-#about{margin:4px 12px 0 80px;padding:12px 0 14px;max-width:700px;border-top:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
-#about h2{font-size:1em;font-weight:normal;margin:0 0 6px}
+#about,#believe{margin:4px 12px 0 80px;padding:12px 0 14px;max-width:700px;border-top:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
+#believe h2,#about h2{font-size:1em;font-weight:normal;margin:0 0 6px}
+#believe ul{list-style:none;margin:0;padding:0;font-size:9pt;line-height:1.5}
+#believe li{display:block;background:none;padding:0 0 5px 14px;position:relative}
+#believe li::before{content:"\2013";position:absolute;left:0;color:var(--muted)}
 #about table{border-collapse:collapse;font-size:9pt;line-height:1.5}
 #about td{vertical-align:top;padding:1px 0}
 #about td:first-child{color:var(--muted);padding-right:12px;white-space:nowrap}
@@ -73,7 +76,8 @@ li.cur{background:color-mix(in srgb,var(--bar) 10%,transparent)}
   body{width:100%;margin:0;font-size:11pt}
   li p,#about table{font-size:10pt}.sub{font-size:8.5pt}
   .hero{padding:16px 12px 14px;gap:10px;flex-direction:column;align-items:flex-start}.hero img{width:72px;height:72px}.hero h1{font-size:15pt}
-  #about{margin-left:12px}
+  #about,#believe{margin-left:12px}
+  #believe ul{font-size:10pt}
   #about td{display:block}#about td:first-child{padding-top:6px}
   li{grid-template-columns:44px 1fr;background-position:44px 0}li::before{padding-right:8px}
 }
@@ -89,7 +93,7 @@ li.cur{background:color-mix(in srgb,var(--bar) 10%,transparent)}
   .opt,footer{display:none}
   .hero h1{font-size:14pt}
   .print-only{display:block;margin:4px 0 0;font-size:8.5pt;color:#555}
-  #about{padding-left:0;margin-left:0}
+  #about,#believe{padding-left:0;margin-left:0}
   li{grid-template-columns:36px 1fr;break-inside:avoid}
 }
 </style>
@@ -195,6 +199,28 @@ Bartolomé Consultores: sistemas de punto de venta <span class="site">(<a href="
 <span class="sub">backend y automatización | python, sql, mikrotik</span>
 </div></li>
 </ol>
+
+<section id="believe">
+<h2><span lang="en">Things I believe</span><span lang="es">Cosas que creo</span></h2>
+<ul lang="en">
+<li>The value of people is changing in the age of AI. What will count: judgment, solid fundamentals, initiative, learning fast, and explaining clearly what you built.</li>
+<li>Interfaces are getting easier for anyone to build. The value is in thinking about the user and in the engineering underneath.</li>
+<li>A demo with hardcoded data wins applause. An algorithm that generalizes is a product.</li>
+<li>Behind every factory's data there is a better production plan than the one made by hand.</li>
+<li>Tech needs people with street-smart experience, not just textbook knowledge.</li>
+<li>If the tool you need doesn't exist, build it.</li>
+<li>Listening to the people who use what you make beats sticking to the original plan.</li>
+</ul>
+<ul lang="es">
+<li>El valor de las personas está cambiando con la IA. Contará el criterio, las buenas bases, la iniciativa, aprender rápido y saber explicar lo que has hecho.</li>
+<li>La interfaz está cada vez más al alcance de cualquiera. El valor está en pensar en el usuario y en la ingeniería que hay debajo.</li>
+<li>Una demo con datos inventados se lleva aplausos. Un algoritmo que generaliza es un producto.</li>
+<li>Detrás de los datos de cada fábrica hay un plan de producción mejor que el que se hace a mano.</li>
+<li>La tecnología necesita gente con experiencia de calle, no solo de libro.</li>
+<li>Si la herramienta que necesitas no existe, constrúyela.</li>
+<li>Escuchar a quien usa lo que haces vale más que el plan inicial.</li>
+</ul>
+</section>
 
 <section id="about">
 <h2><span lang="en">About</span><span lang="es">Sobre mí</span></h2>
